@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
     @Autowired
-    HelloService helloService
+    HelloService helloService;
 
     @RequestMapping("/hello")
     @ResponseBody
