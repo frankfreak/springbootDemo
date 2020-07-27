@@ -25,7 +25,6 @@ public class LoginService {
     }
     public boolean loginByEmail(String email, String password){
         if(password == null || password.length() == 0) return false;
-        if(email == null || email.length() == 0) return false;
         User user = userDao.getByEmail(email);
 
         if(null == user) return false;

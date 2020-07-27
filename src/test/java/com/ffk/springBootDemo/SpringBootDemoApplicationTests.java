@@ -22,7 +22,13 @@ class SpringBootDemoApplicationTests {
 	}
 	@Test
 	void daoTest(){
-		System.out.println(loginService.loginByEmail("727958843@qq.com", "pan1xiao3"));
+		User user = new User();
+		user.setEmail("1111@gmail.com");
+		user.setUserId(67839);
+		user.setPassword("zhu4ling2");
+		user.setUserName("zhuly");
+		userDao.insertUser(user);
+		System.out.println(userDao.getById(67839).toString());
 	}
 
 }

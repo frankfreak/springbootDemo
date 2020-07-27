@@ -29,10 +29,21 @@ public class LoginController {
     public String login(@RequestParam("email") String email,
                         @RequestParam("password") String password,
                         Map<String, Object> map){
+        if(null == email || email.length() == 0){
+            map.put("msg","邮箱不能为空！！");
+            return "login";
+        }
         if(loginService.loginByEmail(email, password)){
             return "success";
         }
         map.put("msg","密码不正确！");
         return "login";
     }
+
+    @RequestMapping("/register")
+    public String register(Map<String, Object> map){
+        return "register";
+    }
+
+
 }
