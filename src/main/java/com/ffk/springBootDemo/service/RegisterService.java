@@ -3,13 +3,17 @@ package com.ffk.springBootDemo.service;
 
 import com.ffk.springBootDemo.dao.UserDao;
 import com.ffk.springBootDemo.domain.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 @Service
 public class RegisterService {
+    Logger logger = LoggerFactory.getLogger(RegisterService.class);
 
     @Autowired
     UserDao userDao;
@@ -29,8 +33,7 @@ public class RegisterService {
             return false;
         }
         int u = userDao.insertUser(user);
-        System.out.println(u);
+        logger.info("insert user result: " + u);
         return true;
     }
-
 }
