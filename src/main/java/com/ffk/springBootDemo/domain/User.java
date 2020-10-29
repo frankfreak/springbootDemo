@@ -5,6 +5,7 @@ public class User {
     private String userName;
     private String password;
     private String email;
+    private String homeTown;
 
     public int getUserId() {
         return userId;
@@ -38,6 +39,14 @@ public class User {
         this.email = email;
     }
 
+    public String getHomeTown() {
+        return homeTown;
+    }
+
+    public void setHomeTown(String homeTown) {
+        this.homeTown = homeTown;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -45,6 +54,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", homeTown='" + homeTown + '\'' +
                 '}';
     }
 }

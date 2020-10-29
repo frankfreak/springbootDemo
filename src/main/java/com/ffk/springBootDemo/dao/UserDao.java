@@ -23,6 +23,6 @@ public interface UserDao {
     @Select("select * from User where userName=#{useName}")
     User getByUserName(String userName);
 
-    @Insert({"insert into User(userId, userName, password, email)", "values(#{userId}, #{userName}, #{password}, #{email})"})
+    @Insert({"insert into User(userId, userName, password, email, homeTown)", "values(#{userId}, #{userName}, #{password}, #{email}, #{homeTown})"})
     int insertUser(User user);
 }

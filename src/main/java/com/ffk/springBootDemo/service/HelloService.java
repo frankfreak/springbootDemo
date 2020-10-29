@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class HelloService {
 
-    public String hello(){
-        return "Hello!";
+    public String hello(int age){
+        return "Hello!" + age;
     }
 }

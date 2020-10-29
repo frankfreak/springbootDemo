@@ -2,13 +2,14 @@ package com.ffk.springBootDemo;
 
 import com.ffk.springBootDemo.dao.UserDao;
 import com.ffk.springBootDemo.domain.User;
+import com.ffk.springBootDemo.service.KmsService;
 import com.ffk.springBootDemo.service.LoginService;
-import com.ffk.springBootDemo.service.RegisterService;
+import com.meituan.service.inf.kms.utils.KmsResultNullException;
+import com.sankuai.inf.kms.pangolin.api.cat.Cat;
+import com.sankuai.inf.kms.pangolin.api.cat.Transaction;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 @SpringBootTest
 class SpringBootDemoApplicationTests {
@@ -23,13 +24,17 @@ class SpringBootDemoApplicationTests {
 	}
 	@Test
 	void daoTest(){
-		User user = new User();
-		user.setEmail("1111@gmail.com");
-		user.setUserId(12345);
-		user.setPassword("zhu4ling2");
-		user.setUserName("zhulyy");
-		userDao.insertUser(user);
-		System.out.println(userDao.getById(67839).toString());
+		Cat.logEvent("", "");
+		Transaction transaction = Cat.newTransaction("", "");
+		transaction.setStatus("");
+		transaction.complete();
+	}
+
+	@Autowired
+	KmsService kmsService;
+	@Test
+	public void getName() throws KmsResultNullException {
+		System.out.println(kmsService.getName());
 	}
 
 }
