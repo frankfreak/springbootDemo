@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.security.GeneralSecurityException;
+
 @SpringBootTest
 class SpringBootDemoApplicationTests {
 
@@ -35,6 +37,11 @@ class SpringBootDemoApplicationTests {
 	@Test
 	public void getName() throws KmsResultNullException {
 		System.out.println(kmsService.getName());
+	}
+
+	@Test
+	public void endeCrypt() throws GeneralSecurityException {
+		System.out.println(kmsService.encrypt("hello"));
 	}
 
 }

@@ -86,21 +86,36 @@
 		</dependency>
 
 		<!--oceanus-->
-		<dependency>
-			<groupId>com.sankuai.oceanus.http</groupId>
-			<artifactId>oceanus-http</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.sankuai.oceanus.http</groupId>-->
+<!--			<artifactId>oceanus-http</artifactId>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>com.meituan.service.inf</groupId>
-			<artifactId>kms-pangolin-sdk</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.meituan.service.inf</groupId>-->
+<!--			<artifactId>kms-pangolin-sdk</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.meituan.service.inf</groupId>
 			<artifactId>kms-java-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.meituan.inf</groupId>
+			<artifactId>idl-kms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.60</version>
+		</dependency>
+		<dependency>
+			<groupId>com.meituan.service.inf</groupId>
+			<artifactId>kms-tls-sdk</artifactId>
+			<version>0.1.2-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
