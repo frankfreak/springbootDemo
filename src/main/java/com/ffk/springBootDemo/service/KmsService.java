@@ -15,7 +15,7 @@ public class KmsService {
     public String encrypt(String text) throws GeneralSecurityException {
         EncryptionRequest request = EncryptionRequest.Builder.anEncryptionRequest()
                 .withNamespace("com.sankuai.kms.pangolin.cloud")	// 命名空间
-                .withKeyName("test-middle")			// 密钥名
+                .withKeyName("middleTest")			// 密钥名
                 .build();
         // IEncryptService 是线程安全的，创建一次即可
         IEncryptService encryptService = EncryptServiceFactory.create(request);

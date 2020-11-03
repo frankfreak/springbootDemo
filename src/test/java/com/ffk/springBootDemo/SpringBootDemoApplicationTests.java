@@ -32,6 +32,8 @@ class SpringBootDemoApplicationTests {
 		KmsPangolinConfig.getInstance().setAppType(AppType.CLOUD);
 		KmsPangolinConfig.getInstance().setRootCertPath(rootCert);
 		KmsPangolinConfig.getInstance().setHostCertPath(hostCert);
+		KmsPangolinConfig.getInstance().setRootPassword("changeit");
+		KmsPangolinConfig.getInstance().setHostPassword("changeit");
 		HttpRemoteStrategy httpRemoteStrategy = HttpRemoteStrategy.instance;
 		byte[] response = httpRemoteStrategy.doGet("/monitor/alive");
 		String content = new String(response, Charsets.UTF_8);

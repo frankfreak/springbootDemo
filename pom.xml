@@ -18,19 +18,6 @@
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencyManagement>
-		<dependencies>
-
-			<dependency>
-				<groupId>com.sankuai</groupId>
-				<artifactId>inf-bom</artifactId>
-				<version>1.4.7</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -89,8 +76,6 @@
 			<artifactId>idl-kms</artifactId>
 			<version>1.4.2</version>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
