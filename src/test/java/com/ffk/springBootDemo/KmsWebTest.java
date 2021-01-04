@@ -1,9 +1,13 @@
 package com.ffk.springBootDemo;
 
+import com.google.common.base.Charsets;
 import com.meituan.service.inf.kms.client.Kms;
 import com.meituan.service.inf.kms.utils.KmsResultNullException;
 import com.sankuai.inf.kms.pangolin.api.model.EncryptDataInfo;
+import com.sankuai.inf.kms.pangolin.api.model.EncryptionRequest;
 import com.sankuai.inf.kms.pangolin.api.model.PangolinSecurityException;
+import com.sankuai.inf.kms.pangolin.api.service.EncryptServiceFactory;
+import com.sankuai.inf.kms.pangolin.api.service.IEncryptService;
 import com.sankuai.inf.kms.pangolin.api.service.encode.EncryptDataCodecFactory;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.RandomStringUtils;
@@ -20,6 +24,9 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.time.ZoneOffset;
@@ -41,16 +48,17 @@ public class KmsWebTest extends SpringBootDemoApplicationTests{
 
     private String getSign(String method, String uri, String date) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         String string_to_sign = method + " " + uri + "\n" + date;
-        return "MWS s3plus:" + getSignature(string_to_sign.getBytes("UTF-8"), "9ebf2cfb853f7a724ab910ee64ed23a8".getBytes("UTF-8"));
+        return "MWS buffalodts-admin:" + getSignature(string_to_sign.getBytes("UTF-8"), "hjMXtUOqZT\"Z".getBytes("UTF-8"));
     }
 
     @Test
     public void postTest() throws IOException, InvalidKeyException, NoSuchAlgorithmException {
         String datetime = ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.RFC_1123_DATE_TIME);
-        String url = "http://kms.test.sankuai.com/manage/api/platformV2/getNotifyListByName"; //拼下url
+        String url = "http://kms.test.sankuai.com/manage/api/platformV2/addWhitelistAuth"; //拼下url
+        url += "?appKey=com.sankuai.buffalodts.tsp.publicwriter02" + "&namespace=zebra." + "&rule=prefix";
         HttpPost request = new HttpPost(url);
         request.addHeader("Date", datetime);
-        request.addHeader("Authorization", getSign(HttpMethod.POST.name(), "/manage/api/platformV2/addKey", datetime));
+        request.addHeader("Authorization", getSign(HttpMethod.POST.name(), "/manage/api/platformV2/addWhitelistAuth", datetime));
         CloseableHttpResponse response = HttpClients.createDefault().execute(request);
         String msg = EntityUtils.toString(response.getEntity());
         System.out.println(msg);
@@ -88,5 +96,11 @@ public class KmsWebTest extends SpringBootDemoApplicationTests{
         String key = Kms.getByName("takeaway-eventbusiness-service", "auth_client_mapi-appkit-service");
         System.out.println(key);
 
+    }
+
+    @Test
+    public void testHmacDigest() throws UnknownHostException {
+        InetAddress addr = InetAddress.getLocalHost();
+        System.out.println(addr.getHostAddress());
     }
 }

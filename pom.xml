@@ -20,6 +20,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.sankuai.octo</groupId>
+			<artifactId>mns-invoker</artifactId>
+			<version>1.9.10</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -33,7 +38,7 @@
 		<dependency>
 			<groupId>com.meituan.service.inf</groupId>
 			<artifactId>kms-pangolin-sdk</artifactId>
-			<version>0.5.7-SNAPSHOT</version>
+			<version>0.5.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.meituan.service.inf</groupId>
@@ -95,7 +100,7 @@
 		<dependency>
 			<groupId>com.meituan.inf</groupId>
 			<artifactId>idl-kms</artifactId>
-			<version>1.4.2</version>
+			<version>1.4.4-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
